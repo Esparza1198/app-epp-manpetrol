@@ -1,0 +1,169 @@
+body {
+    background-image: url('fondopantalla.jpg');
+    background-size: cover;
+}
+
+#contenedorSupervisor { 
+    display: flex;             /* Activa el diseño flexible */
+    flex-direction: column;    /* Alinea los elementos en vertical */
+    align-items: center;       /* Centra los elementos horizontalmente */
+    width: 100%;
+    gap: 5px;
+    padding: 10px;
+}
+
+#inputSupervisor {
+    width: 50%;              /* Tu ancho fijo se mantiene */
+}
+
+.expandible-oculto {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, opacity 0.3s ease;
+    opacity: 0;
+}
+
+.expandible-visible {
+    max-height: 100px; /* Altura suficiente para el input */
+    opacity: 1;
+}
+
+#divradio {
+    display: flex;         /* Activa el modo Flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;     /* Centra verticalmente */
+    gap: 10px;               /* Da un pequeño espacio entre los botones */
+    width: 100%;             /* Asegura que ocupe todo el ancho */        /* Opcional: espacio arriba y abajo */
+}
+
+#boton_1 {
+    width: 300px;
+    height: 20px;
+}
+
+#titulo_principal {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+}
+
+#divBoton1 {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+}
+
+#boton_1 {
+    display: inline-flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+#divBoton2 {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+}
+
+#boton_1, #boton_4 {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    /* Agrega esto para igualarlos */
+    width: 150px;  /* Ancho fijo */
+    height: 45px;  /* Alto fijo */
+    padding: 0;    /* Quitamos espacios internos que puedan variar */
+    text-align: center;
+}
+
+#divInput1 {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+}
+
+#input_posicion {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
+
+#divReflejador {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.contenedor-centrado {
+    display: flex;
+    /* Activa el modo flexible */
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente (si el padre tiene altura) */
+    padding: 20px;
+}
+
+#inputLegajo {
+    text-align: center;
+    /* Esto hace que hasta el texto que escribes aparezca en el centro del input */
+}
+
+.divlogo {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    /* Asegura que el contenedor ocupe todo el ancho */
+    padding: 10px 0;
+    /* Reemplaza el margin-top negativo para evitar errores de capa */
+}
+
+.imagenmanpetrol {
+    max-width: 400px;
+    /* "Como máximo mide 400px", pero si la pantalla es chica, se achica */
+    width: 90%;
+    /* En celulares ocupará el 90% del ancho disponible */
+    height: auto;
+    /* IMPORTANTE: No fijes el height a 100px para que no se estire/aplane */
+    position: relative;
+    display: inline-block;
+}
+
+#contenedorTabla {
+    /* Define el ancho máximo que desees (puede ser px o %) */
+    max-width: 800px;
+    text-align: center;
+    /* Centra el contenedor horizontalmente */
+    margin-left: auto;
+    margin-right: auto;
+
+    /* Asegura que la tabla dentro se ajuste al contenedor */
+    width: 100%;
+}
+
+/* Opcional: para que la tabla no se vea pegada al borde en móviles */
+#contenedorTabla table {
+    margin-bottom: 0;
+}
+
+.fila-seleccionada {
+    background-color: #f8f9fa !important;
+    /* Un gris claro */
+    outline: 2px solid #198754 !important;
+    /* Un borde verde */
+    transition: 0.2s;
+}
+
+/* Opcional: para que las letras resalten */
+.fila-seleccionada td {
+    font-weight: bold;
+    color: #04236b !important;
+}
