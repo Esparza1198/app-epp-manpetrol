@@ -46,7 +46,7 @@ function filtrarPersonas() {
 
     contenedor.innerHTML = coincidencias.map(p => `
         <button type="button" class="list-group-item list-group-item-action" 
-                onclick="seleccionarPersona('${p.legajo}', '${p.nombreApellido}', '${p.dni}')">
+                onclick="seleccionarPersona('${p.legajo}', '${p.nombreApellido}', '${p.dni}', '${p.funcion}')"> 
             <div class="d-flex w-100 justify-content-between">
                 <h6 class="mb-1">${p.nombreApellido}</h6>
                 <small class="text-primary fw-bold">Legajo: ${p.legajo}</small>
@@ -58,13 +58,13 @@ function filtrarPersonas() {
 
 let personaSeleccionada = null;
 
-function seleccionarPersona(legajo, nombre, dni) {
-    // 2. Guardamos los datos en nuestra variable global
-    // Guardamos un objeto con toda la info para que sea más útil
+function seleccionarPersona(legajo, nombre, dni, funcion) { // <-- Agregamos "funcion" como parámetro
+    // Guardamos los datos en nuestra variable global
     personaSeleccionada = {
         legajo: legajo,
         nombre: nombre,
-        dni: dni
+        dni: dni,
+        funcion: funcion // <-- NUEVO: Guardamos la función en la memoria
     };
 
     document.getElementById('busq_personas').value = `${nombre} (Legajo: ${legajo})`;
