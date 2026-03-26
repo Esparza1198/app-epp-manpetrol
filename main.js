@@ -128,6 +128,10 @@ botonAgregar.addEventListener('click', () => {
 
     let cantidad = cantidadAgregar.value;
 
+    if (cantidad == ""){
+        alert("Agregar una cantidad valida al item!!");
+        return;
+    }
     if (personaSeleccionada && materialSeleccionado) {
 
         const cuerpoTabla = document.getElementById('cuerpoTabla');
@@ -157,35 +161,42 @@ botonAgregar.addEventListener('click', () => {
 });
 
 function marcarFila(fila) {
-    const todasLasFilas = document.querySelectorAll('#cuerpoTabla tr');
+    if (window.event) window.event.stopPropagation(); 
 
+    const todasLasFilas = document.querySelectorAll('#cuerpoTabla tr');
     todasLasFilas.forEach(f => f.classList.remove('fila-seleccionada'));
 
     fila.classList.add('fila-seleccionada');
 }
+document.addEventListener('click', (event) => {
+    const tabla = document.getElementById('cuerpoTabla');
+    
+    // Si el click NO fue dentro de la tabla, quitamos la selección
+    if (!tabla.contains(event.target)) {
+        const filaSeleccionada = document.querySelector('#cuerpoTabla tr.fila-seleccionada');
+        if (filaSeleccionada) {
+            filaSeleccionada.classList.remove('fila-seleccionada');
+            console.log("Se desmarcó la fila porque hiciste click afuera");
+        }
+    }
+});
 
 const botonBorrar = document.getElementById('boton_4');
 
-botonBorrar.addEventListener('click', () => {
+botonBorrar.addEventListener('click', (event) => {
+    // También detenemos el click aquí para que el botón borrar
+    // no se confunda con "hacer click afuera de la tabla"
+    event.stopPropagation();
 
-    // 1. Buscamos la fila que tiene la clase de selección
     const filaParaBorrar = document.querySelector('#cuerpoTabla tr.fila-seleccionada');
 
-    // 2. Verificamos si realmente hay una fila seleccionada
     if (filaParaBorrar) {
-
-        // Confirmación opcional para evitar accidentes
         if (confirm("¿Estás seguro de que deseas eliminar esta fila?")) {
-
-            // 3. Eliminamos la fila
             filaParaBorrar.remove();
-
             console.log("Fila eliminada correctamente");
         }
-
     } else {
-        // Si no encontró ninguna fila con esa clase
-        alert("Por favor, selecciona una fila de la tabla primero haciendo clic sobre ella.");
+        alert("Por favor, selecciona una fila de la tabla primero.");
     }
 });
 

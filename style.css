@@ -167,3 +167,43 @@ body {
     font-weight: bold;
     color: #04236b !important;
 }
+
+#visualizadorMateriales {
+    max-height: 250px;       /* Altura máxima (ajústala a tu gusto) */
+    overflow-y: auto;        /* Activa la ruedita si hay muchos items */
+    position: absolute;      /* Flota sobre la tabla sin empujarla */
+    width: 100%;             /* Mantiene el ancho del buscador */
+    z-index: 1050;           /* Se asegura de estar por encima de todo */
+    background-color: white; /* Evita que se vea la tabla de fondo */
+    border: 1px solid #ddd;  /* Un borde sutil para que se vea profesional */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra para dar efecto de "capa" */
+}
+
+/* Opcional: Para que la ruedita se vea más fina en Chrome/Edge */
+#visualizadorMateriales::-webkit-scrollbar {
+    width: 6px;
+}
+#visualizadorMateriales::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+#visualizadorPersonas {
+    position: absolute;      /* Clave para que flote */
+    top: 100%;               /* Para que aparezca justo debajo del input */
+    left: 0;
+    width: 100%;             /* Para que mida lo mismo que el buscador */
+    max-height: 250px; 
+    overflow-y: auto;
+    z-index: 2000;           /* Subimos el z-index por si acaso */
+    background-color: white !important; /* El !important asegura que no sea transparente */
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 0;              /* Evita espacios raros internos */
+}
+
+/* Esto quita bordes dobles si usas list-group de Bootstrap */
+#visualizadorPersonas .list-group-item {
+    border-left: none;
+    border-right: none;
+}

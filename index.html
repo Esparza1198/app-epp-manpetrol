@@ -28,8 +28,7 @@
                     placeholder="Buscar por Nombre, Legajo o DNI..." onkeyup="filtrarPersonas()" autocomplete="off"
                     role="presentation">
             </div>
-            <div id="visualizadorPersonas" class="list-group position-absolute w-100 shadow-lg"
-                style="z-index: 1000; top: 100%;">
+            <div id="visualizadorPersonas" class="list-group shadow-lg">
             </div>
         </div>
     </div>
@@ -49,7 +48,7 @@
             </div>
 
             <div id="visualizadorMateriales" class="list-group position-absolute w-100 shadow-lg"
-                style="z-index: 1000; top: 100%;">
+                style="z-index: 1000; top: 100%; max-height: 250px; overflow-y: auto;">
             </div>
         </div>
     </div>
@@ -124,7 +123,8 @@
     </div>
     <div id="divradio" class="form-check form-switch">
         <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-        <label class="form-check-label" for="switchCheckDefault">Tildar el check en caso de no devolver la planilla.</label>
+        <label class="form-check-label" for="switchCheckDefault">Tildar el check en caso de no devolver la
+            planilla.</label>
     </div>
     <div id="contenedorSupervisor" class="expandible-oculto">
         <label for="inputSupervisor">Supervisor a cargo de las planillas:</label>
